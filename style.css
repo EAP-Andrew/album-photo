@@ -1,0 +1,112 @@
+:root { color-scheme: dark; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #0b0c10;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Fullscreen stage */
+.stage {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: #0b0c10;
+}
+
+/* Wrap fits the book object only */
+.book-wrap {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  display: grid;
+  place-items: center;
+  background: transparent;
+}
+
+/* Book container */
+#book {
+  width: auto;
+  height: auto;
+  display: inline-block;
+  background: transparent;
+}
+
+/* Force PageFlip internal layers to be dark */
+#book,
+#book .stf__parent,
+#book .stf__wrapper,
+#book .stf__container,
+#book .stf__block,
+#book .stf__outerShadow,
+#book .stf__innerShadow,
+#book .stf__item,
+#book .stf__canvas,
+#book canvas,
+#book .stf__page,
+#book .stf__page > div {
+  background: #0b0c10 !important;
+  background-color: #0b0c10 !important;
+}
+
+#book .stf__canvas,
+#book canvas {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Nav buttons */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(54px, 5.5vw, 92px);
+  height: clamp(54px, 5.5vw, 92px);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  user-select: none;
+  transition: background .15s ease, transform .15s ease;
+  z-index: 10;
+}
+
+.nav-btn:hover { background: rgba(255,255,255,0.14); }
+.nav-btn:active { transform: translateY(-50%) scale(0.97); }
+.nav-btn svg { width: 55%; height: 55%; }
+
+/* Outside the book */
+.nav-left  { right: calc(100% + var(--nav-gap)); }
+.nav-right { left:  calc(100% + var(--nav-gap)); }
+
+/* HUD */
+.hud {
+  position: absolute;
+  bottom: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.55);
+  color: rgba(255,255,255,0.92);
+  font-size: 14px;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+@media (max-width: 900px) {
+  .hud { bottom: -44px; }
+}
+
+@media (max-width: 520px) {
+  .hud { bottom: -40px; font-size: 13px; }
+}

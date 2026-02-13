@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Album Flipbook</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="stage">
+    <div class="book-wrap" id="wrap" style="--nav-gap: 28px;">
+      <button class="nav-btn nav-left" id="prevBtn" aria-label="Previous page">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6"
+                stroke="currentColor" stroke-width="2.6"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div id="book"></div>
+
+      <button class="nav-btn nav-right" id="nextBtn" aria-label="Next page">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M9 6l6 6-6 6"
+                stroke="currentColor" stroke-width="2.6"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="hud" id="hud">Loading…</div>
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
